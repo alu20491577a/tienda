@@ -45,6 +45,9 @@ class Producto
         $this->setUrl();
     }
 
+    public function getJson(){
+      return json_encode(array("HOME"=> "/tiendav/", "id" => $this->id, "nombre" => $this->nombre, "foto" => $this->foto, "descripcion" =>  $this->descripcion, "precio" => $this->getHtmlPrecio()));
+    }
     public function getId(){
       return $this->id;
     }
@@ -90,7 +93,7 @@ class Producto
     	$str .= "</div>";
     	$str .= "<h4 class='pull-right' style='position:absolute; bottom:4px; left:4px'>". $this->getHtmlPrecio() . "</h4>";
       $redir = explode("/","$_SERVER[PHP_SELF]");
-      $str .= "<a href='./carro.php?action=add&id=" . $this->id .  "&redirect=" . array_pop($redir). "?id=" . $this->id . "&cantidad=1'class='btn btn-danger' style='position:absolute; bottom:4px; right:4px'>Comprar</a>";
+      $str .= "<a href='./carro.php?action=add&id=" . $this->id .  "&redirect=" . array_pop($redir). "?id=" . $this->id . "&cantidad=1' class='btn btn-danger' style='position:absolute; bottom:4px; right:4px'>Comprar</a>";
 
 
       return $str;
@@ -100,9 +103,9 @@ class Producto
 
       $str =  "<h2 class='subtitle' style='margin:0'>" . $this->nombre ."</h2>";
       $str .= "<img class='center-block img-responsive img-thumbnail' src='./basededatos/img/600_" . $this->foto . "' alt=''>";
-    	$str .= "<div class='caption'>";
-    	$str .= "<p>" . $this->descripcion . "</p>";
-    	$str .= "</div>";
+      $str .= "<div class='caption'>";
+      $str .= "<p>" . $this->descripcion . "</p>";
+      $str .= "</div>";
 
       return $str;
 
@@ -118,7 +121,7 @@ class Producto
           $str .= "</div>";
           $str .= "<h4 class='pull-right'>" . $this->getHtmlPrecio() . "</h4>";
           $redir = explode("/","$_SERVER[PHP_SELF]");
-          $str .= "<a href='./carro.php?action=add&id=". $this->id ."&redirect=" . array_pop($redir). "?id=" . $this->getIdCategoria() . "&cantidad=1'class='btn btn-danger' style='position:absolute; bottom:4px; right:4px'>Comprar</a>";
+          $str .= "<a href='./carro.php?action=add&id=". $this->id ."&redirect=" . array_pop($redir). "?id=" . $_GET['id'] . "&cantidad=1' class='btn btn-danger' style='position:absolute; bottom:4px; right:4px'>Comprar</a>";
         $str .= "</div>";
       $str .= "</div>";
       return $str;

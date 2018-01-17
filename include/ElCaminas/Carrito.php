@@ -49,7 +49,7 @@ heredoc;
           $i++;
           $subtotal = $producto->getPrecioReal() * $cantidad;
           $subtotalTexto = number_format($subtotal , 2, ',', ' ') ;
-          $str .=  "<tr><th scope='row'>$i</th><td><a href='" .  $producto->getUrl() . "'>" . $producto->getNombre() . "</a>&nbsp;<a class='open-modal' title='Haga clic para ver el detalle del producto' href='" .  $producto->getUrl() . "&state=popup'><span style='color:#000' class='fa fa-external-link'></span></a></td><td>$cantidad</td><td>" .  $producto->getPrecioReal() ." €</td><td>$subtotalTexto €</td> <td><a class='btn btn-danger' href='carro.php?action=delete&id=" . $producto->getId() ."'>Delete</a></td></tr>";
+          $str .=  "<tr><th scope='row'>$i</th><td><a href='" .  $producto->getUrl() . "'>" . $producto->getNombre() . "</a>&nbsp;<a class='open-modal' title='Haga clic para ver el detalle del producto' href='" .  $producto->getUrl() . "'><span style='color:#000' class='fa fa-external-link'></span></a></td><td>$cantidad</td><td>" .  $producto->getPrecioReal() ." €</td><td>$subtotalTexto €</td> <td><a class='btn btn-danger' href='carro.php?action=delete&id=" . $producto->getId() ."'>Delete</a></td></tr>";
         }
       }
       $str .= <<<heredoc
